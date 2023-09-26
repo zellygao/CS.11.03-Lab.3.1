@@ -22,4 +22,4 @@ Create a game that follows the style of text-based games. You will have to use a
 - At least 10 conditional statements. (if, if/else, if/else if/else).
 - At least 10 different methods with a variety of return types.
 
-You may change anything in the starter code. As long as it's appropriate for school, you may have any kind of storyline for your adventure.
+As long as it's appropriate for school, you may have any kind of storyline for your adventure.
