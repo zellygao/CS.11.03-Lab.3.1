@@ -2,6 +2,7 @@ import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class TextBasedGame {
+    static int score = 0;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to Elly's Supermarket Guesser! What is your name?");
@@ -14,7 +15,6 @@ public class TextBasedGame {
         System.out.println("\n Please enter 1 to proceed!");
         int proceed = scanner.nextInt();
 
-        int score=0;
 
         if (proceed == 1) {
             asianguess(cuisine, scanner);
@@ -24,7 +24,7 @@ public class TextBasedGame {
         System.out.println("Enter 1 to view your results.");
         proceed = scanner.nextInt();
         if(proceed==1) {
-            System.out.println(score(score));
+            System.out.println(score);
             System.out.println("You scored " + result(score) + " %");
             System.out.println(passorfail(score));
         }
@@ -51,7 +51,7 @@ public class TextBasedGame {
         return "\n" + "How much do you think " + food + " costs?";
     }
 
-    public static int pricecheck (int estimate, int real, String food, int score) {
+    public static int pricecheck (int estimate, int real, String food) {
         if (estimate-real == 0){
             System.out.println("Correct! " + food + " costs " + real + " dollars!");
             score +=3;
@@ -80,21 +80,20 @@ public class TextBasedGame {
         int rice = 60;
         int salmon = 50;
         int cucumber = 5;
-        int score = 0;
 
         if (cuisine == 1) {
-            proceed("1 pack of nori", nori, scanner, score);
-            proceed("1kg pack of japanese rice", rice, scanner, score);
-            proceed("50g of salmon", salmon, scanner, score);
-            proceed("1 cucumber", cucumber, scanner, score);
+            proceed("1 pack of nori", nori, scanner);
+            proceed("1kg pack of japanese rice", rice, scanner);
+            proceed("50g of salmon", salmon, scanner);
+            proceed("1 cucumber", cucumber, scanner);
 
         }
     }
 
-    public static void proceed (String food, int real, Scanner scanner, int score) {
+    public static void proceed (String food, int real, Scanner scanner) {
         System.out.println(ask(food));
         int estimate = scanner.nextInt();
-        System.out.println(pricecheck(estimate, real, food, score));
+        System.out.println(pricecheck(estimate, real, food));
     }
 
     public static void westernguess(int cuisine, Scanner scanner) {
@@ -103,16 +102,15 @@ public class TextBasedGame {
         int spaghetti = 40;
         int onion = 6;
         int tomato = 40;
-        int score = 0;
 
         if (cuisine == 2) {
-            proceed("50g of minced beef", beef, scanner, score);
-            proceed("1 pack of dried spaghetti", spaghetti, scanner, score);
-            proceed("1 white onion", onion, scanner, score);
-            proceed("1 jar of tomato sauce", tomato, scanner, score);
+            proceed("50g of minced beef", beef, scanner);
+            proceed("1 pack of dried spaghetti", spaghetti, scanner);
+            proceed("1 white onion", onion, scanner);
+            proceed("1 jar of tomato sauce", tomato, scanner);
         }
     }
-   public static String score (int score){
+   public static String score (){
      return "You scored" + score + "/12";
 }
 
